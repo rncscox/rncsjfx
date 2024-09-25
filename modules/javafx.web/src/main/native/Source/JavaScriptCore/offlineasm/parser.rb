@@ -921,7 +921,7 @@ class Parser
 end
 
 def readTextFile(fileName)
-    data = IO::read(fileName)
+    data = File.read(fileName)
 
     # On Windows, files may contain CRLF line endings (for example, git client might
     # automatically replace \n with \r\n on Windows) which will fail our parsing.

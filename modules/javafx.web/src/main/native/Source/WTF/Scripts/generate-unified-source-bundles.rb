@@ -216,9 +216,9 @@ class BundleManager
             $outputSources << bundleFile
             return
         end
-        if (!bundleFile.exist? || IO::read(bundleFile) != @currentBundleText)
+        if (!bundleFile.exist? || File.read(bundleFile) != @currentBundleText)
             log("Writing bundle #{bundleFile} with: \n#{@currentBundleText}")
-            IO::write(bundleFile, @currentBundleText)
+            File.write(bundleFile, @currentBundleText)
         end
     end
 

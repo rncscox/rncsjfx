@@ -188,7 +188,7 @@ public class SkinningMesh extends PolygonMesh {
 
         updateLocalToGlobalTransforms(jointIndexForest);
 
-        float[] points = new float[nPoints*3];
+        double[] points = new double[nPoints*3];
         double[] t = new double[12];
         float[] relativePoint;
         for (int j = 0; j < nJoints; j++) {
@@ -200,7 +200,7 @@ public class SkinningMesh extends PolygonMesh {
                 points[3*i+2] += weights[j][i] * (t[8] * relativePoint[3*i] + t[9] * relativePoint[3*i+1] + t[10] * relativePoint[3*i+2] + t[11]);
             }
         }
-        getPoints().set(0, points, 0, points.length);
+        getPoints().setAll(points, 0, points.length);
 
         jointsTransformDirty = false;
     }
